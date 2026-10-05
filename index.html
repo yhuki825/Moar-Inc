@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!--
+================================================================
+  株式会社モアール ブランドサイト デザイン案（9/26ハウススタイル版）
+  コンセプト：「重ねるほど、人が集まる。」
+    社名「モアール」の響きを、二つの言葉に重ねて読む。
+    ひとつは英語の more（もっと）。もうひとつは、薄い布や網を重ねたときに浮かび上がる
+    模様「モアレ（moiré）」。広告企画・イベント運営・営業支援は、ひとつずつでも届くが、
+    重ねたときに初めて「人が集まる流れ」という大きな模様が生まれる――という会社として表現。
+    ・ヒーロー（E：写真を処理するCanvas）：会場に集まる人の写真を、横線の網（線画の版）に描き直し、
+      その上に同心円の網をゆっくり広げて重ねる。二つの網が重なったところにだけモアレの模様が
+      浮かぶ。ポインターを動かすと、同心円の中心（＝人が集まる中心）がついてくる。
+    ・右端のスクロールレール：間隔の違う二本の縞の帯。スクロールに合わせて一本がずれ、
+      本物のモアレが動く。輪の目印と % を表示。
+    ・図：三つの方向の線（広告／イベント／営業）が一つの円の中で順に引かれ、重なって網目になるSVG。
+    ※所在地・地名など土地から着想した要素、代表者名からの着想は採用していません。
+  書体：Shippori Mincho B1 ＋ Zen Kaku Gothic New ＋ Cormorant Garamond
+  配色：夜の会場（深い青緑の黒）#0F1E20 ／ 生成り #EFE8DE ／ 朱の珊瑚 #EE7A55 ／ 布の生成り #F1EBE2
+  デプロイ：Cloudflare Pages（Direct Upload）にこのファイルをそのままアップロード。
+            ビルド不要。外部依存は Google Fonts と Unsplash 画像のみ。
+
+  ■ 公開前の確認事項（チェックリスト）
+  [ ] 1. 社名の由来（「more」「モアレ」は響きからの本案の解釈。正式な由来をご確認ください）
+  [ ] 2. 代表者の役職名（株式会社のため「代表取締役」と仮置き）
+  [ ] 3. 設立年月日・資本金・従業員数 … 未確認のため会社概要ではコメントアウト
+  [ ] 4. 業種固有の法令：景品表示法（広告表現・ステルスマーケティング規制）、
+         イベント運営に伴う会場・道路使用・食品提供等の許可（該当する場合）
+  [ ] 5. 代表メッセージは草案です。ご本人の確認・修正を経て公開してください
+  [ ] 6. 画像はUnsplashのフリー素材（仮）。実際の業務写真への差し替え推奨
+  [ ] 7. OGP画像・favicon・公開URL
+
+  ▼ 確認事項一覧
+  【確認事項】1. 英字表記「MOAR」はデザイン上の仮表記です（CSVに英字社名なし）
+  【確認事項】2. CSVの事業内容欄には書類・アカウント等の申込用メモが含まれていたため、事業に関する記載（広告サービス、集客支援、広告企画・イベント運営・営業支援）のみを使用しました
+  【確認事項】3. キャッチコピー「重ねるほど、人が集まる。」・各サービスの説明・進め方は制作側の文案です
+  【確認事項】4. 社名の読み（more／モアレ）は響きからの解釈です。本文では「私たちはこう読んでいます」に留めています
+  【確認事項】5. イベント運営の対象（展示会・販促イベント・セミナー等）と規模
+  【確認事項】6. 営業支援の範囲（営業代行・資料作成・同行等）
+  【確認事項】7. 広告表現について景品表示法（ステルスマーケティング規制を含む）への対応方針
+  【確認事項】8. 設立年月日・資本金・従業員数・実績は未確認のため掲載していません
+  【確認事項】9. 所在地は提出書類の住所と完全一致しているか（建物名を含む）。郵便番号はCSVの記載から補記
+  【確認事項】10. 代表メッセージは草案。署名欄の氏名は会社概要に記載のため省略しています
+  【確認事項】11. 画像はUnsplashのフリー素材（仮）：1540575467063-178a50c2df87 / 1505236858219-8359eb29e329 /
+         1454165804606-c3d57bc86b40 / 1511578314322-379afb476865 / 1517048676732-d65bc937f952
+  ※ご依頼に合わせ、連絡用の窓口エリア・入力フォーム・代表者写真は設けていません。
+================================================================
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>株式会社モアール｜広告企画・イベント運営・営業支援で集客をトータルサポート</title>
+<meta name="description" content="株式会社モアールは、広告企画からイベント運営、営業支援まで、企業の集客をトータルでサポートする広告サービス・集客支援の会社です。">
+<meta property="og:title" content="株式会社モアール｜重ねるほど、人が集まる。">
+<meta property="og:description" content="広告企画からイベント運営、営業支援まで。企業の集客をトータルサポート。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<!-- 【確認事項】og:url / og:image は公開ドメイン確定後に設定 -->
+<meta name="theme-color" content="#0F1E20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F1E20'/%3E%3Cg fill='none' stroke='%23EE7A55' stroke-width='1.2'%3E%3Ccircle cx='13' cy='16' r='4'/%3E%3Ccircle cx='13' cy='16' r='8'/%3E%3Ccircle cx='19' cy='16' r='4'/%3E%3Ccircle cx='19' cy='16' r='8'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho+B1:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  /* 夜の会場と、重なって浮かぶ朱の模様 */
+  --venue:#0F1E20;        /* 基調：深い青緑の黒（照明を落とした会場） */
+  --venue-2:#16292C;      /* 一段明るい床 */
+  --venue-deep:#0A1416;   /* フッター */
+  --kinari:#EFE8DE;       /* 文字：生成り */
+  --coral:#EE7A55;        /* 差し色：朱の珊瑚（重なった模様の色） */
+  --base:var(--venue);--base2:var(--venue-2);--deep:var(--venue-deep);
+  --base-rgb:15,30,32;
+  --text:var(--kinari);--mute:#8FA19F;--soft:rgba(239,232,222,.8);
+  --accent:var(--coral);--accent-rgb:238,122,85;
+  --line:rgba(239,232,222,.13);--line-strong:rgba(239,232,222,.3);
+  --paper:#F1EBE2;        /* 布の生成り */
+  --ink:#16252A;--ink-rgb:22,37,42;--ink-mute:#5E6E6E;--accent-ink:#C2532F;
+  --fallback:repeating-linear-gradient(0deg,rgba(238,122,85,.14) 0 1px,transparent 1px 6px),repeating-linear-gradient(4deg,rgba(239,232,222,.08) 0 1px,transparent 1px 6px),linear-gradient(135deg,#16292C,#0A1416);
+  --serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --latin:"Cormorant Garamond","Times New Roman",serif;
+  --header-h:72px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--base);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.95;letter-spacing:.04em;word-break:auto-phrase;text-wrap:pretty;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.nw{display:inline-block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--accent);color:var(--base);padding:10px 16px;text-decoration:none;font-weight:700;transition:top .2s}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+.wrap{width:min(1160px,100% - 48px);margin:0 auto}
+.sec{padding:clamp(96px,14vw,180px) 0;position:relative}
+.alt{background:var(--base2);--sec-bg:var(--base2)}
+.deep{background:var(--deep);--sec-bg:var(--deep)}
+.paper{background:var(--paper);color:var(--ink);--text:var(--ink);--line:rgba(var(--ink-rgb),.16);--line-strong:rgba(var(--ink-rgb),.5);--mute:var(--ink-mute);--soft:rgba(var(--ink-rgb),.82);--sec-bg:var(--paper);--accent:var(--accent-ink)}
+p{margin:0 0 1.3em}
+
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid transparent;transition:background .4s,border-color .4s,backdrop-filter .4s}
+.header.is-scrolled{background:rgba(var(--base-rgb),.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line)}
+.header-in{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(20px,4vw,56px);max-width:1440px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.logo svg{flex:none}
+.logo__t{display:flex;flex-direction:column;line-height:1.1}
+.logo__t small{font-size:10.5px;color:var(--mute);letter-spacing:.2em}
+.logo__t b{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.22em}
+.logo__t em{font-family:var(--latin);font-style:italic;font-size:13px;letter-spacing:.12em;color:var(--accent)}
+.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(16px,2.2vw,34px)}
+.gnav a{position:relative;display:block;padding:6px 0;text-decoration:none;font-size:13.5px;letter-spacing:.12em}
+.gnav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.gnav a:hover::after,.gnav a:focus-visible::after{transform:scaleX(1)}
+.menu-btn{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer;position:relative;flex:none}
+.menu-btn span{position:absolute;left:10px;right:10px;height:1.5px;background:currentColor;transition:transform .35s,top .35s}
+.menu-btn span:nth-child(1){top:18px}.menu-btn span:nth-child(2){top:26px;left:16px}
+.menu-btn span:nth-child(3){display:none}
+.menu-btn[aria-expanded="true"] span:nth-child(1){top:22px;transform:rotate(25deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){top:22px;left:10px;transform:rotate(-25deg)}
+@media (max-width:900px){
+ :root{--header-h:64px}
+ .menu-btn{display:block;z-index:120}
+ .gnav{position:fixed;inset:0;background:rgba(var(--base-rgb),.97);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;padding:env(safe-area-inset-top,0px) 24px env(safe-area-inset-bottom,0px)}
+ .gnav.is-open{opacity:1;visibility:visible}
+ .gnav ul{flex-direction:column;align-items:center;gap:26px}
+ .gnav a{font-family:var(--serif);font-size:20px;letter-spacing:.14em}
+}
+
+/* hero : E photo-driven canvas (moiré) */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;background:radial-gradient(120% 90% at 70% 20%,#18302F 0%,var(--base) 62%)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero__veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,30,32,.6) 0%,transparent 28%,transparent 56%,rgba(15,30,32,.92) 100%),linear-gradient(90deg,rgba(15,30,32,.6),transparent 46%)}
+.hero__lead-wrap{position:relative;z-index:2;padding:0 0 clamp(52px,9vh,96px) clamp(20px,5vw,72px);max-width:36em}
+.hero__en{font-family:var(--latin);font-style:italic;font-size:clamp(20px,2.1vw,27px);letter-spacing:.04em;color:var(--accent);margin:0 0 14px;line-height:1.4}
+.hero__lead{font-size:15px;color:var(--soft);margin:0 0 24px}
+.hero__lead strong{font-weight:500;color:#fff}
+.pills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pills a{display:block;text-decoration:none;font-size:13px;letter-spacing:.12em;padding:6px 16px;border:1px solid var(--line-strong);border-radius:999px;transition:border-color .3s,background .3s}
+.pills a:hover{border-color:var(--accent);background:rgba(238,122,85,.08)}
+.hero h1{position:relative;z-index:2;align-self:center;writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:clamp(38px,4.8vw,66px);line-height:1.6;letter-spacing:.22em;margin:0 clamp(48px,7vw,120px) 0 0;color:#fff;text-shadow:0 2px 24px rgba(10,20,22,.6)}
+.hero h1 span{display:block}
+.hero h1 span+span{padding-top:2.6em}
+@keyframes rise{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+.js .hero h1 span{opacity:0;animation:rise 1.6s cubic-bezier(.22,.61,.36,1) .5s forwards}
+.js .hero h1 span+span{animation-delay:.95s}
+.js .hero__lead-wrap{opacity:0;animation:fade 1.5s 1.5s cubic-bezier(.22,.61,.36,1) forwards}
+.scroll-cue{position:absolute;z-index:2;left:50%;bottom:24px;display:flex;align-items:center;gap:14px;font-family:var(--latin);font-style:italic;font-size:14px;letter-spacing:.12em;color:var(--mute);text-decoration:none}
+.scroll-cue::after{content:"";width:60px;height:1px;background:var(--mute);transform-origin:left;animation:hint 2.4s ease-in-out infinite}
+@keyframes hint{0%{transform:scaleX(0)}60%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+@media (max-width:900px){
+ .hero{grid-template-columns:minmax(0,1fr);align-content:space-between;align-items:stretch}
+ .hero h1{order:-1;writing-mode:horizontal-tb;font-size:clamp(30px,8.6vw,42px);letter-spacing:.1em;line-height:1.55;margin:0;padding:calc(var(--header-h) + 40px + env(safe-area-inset-top,0px)) clamp(20px,5vw,72px) 0}
+ .hero h1 span+span{padding-top:0;padding-left:1.2em}
+ .hero__lead-wrap{padding-right:clamp(20px,5vw,72px)}
+ .scroll-cue{display:none}
+}
+
+/* heading : H1' big italic Latin + small JA */
+.sh{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 22px;margin:0 0 clamp(40px,6vw,72px)}
+.sh__en{font-family:var(--latin);font-style:italic;font-weight:400;font-size:clamp(42px,6vw,78px);line-height:1;letter-spacing:.01em;margin:0}
+.sh h2{font-family:var(--serif);font-weight:500;font-size:15px;letter-spacing:.24em;color:var(--accent);margin:0}
+.lede{font-family:var(--serif);font-weight:600;font-size:clamp(23px,2.8vw,34px);line-height:1.7;letter-spacing:.1em;margin:0 0 30px}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1)}
+.js .reveal.is-in{opacity:1;transform:none}
+
+/* photos */
+.ph{position:relative;overflow:hidden;margin:0;background:linear-gradient(135deg,var(--base2),var(--deep))}
+.ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.04)}
+.ph.is-fallback{background:var(--fallback)}
+
+/* concept */
+.concept-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(40px,7vw,110px);align-items:center}
+.concept-text p{max-width:30em;color:var(--soft)}
+.readings{list-style:none;margin:28px 0;padding:0;border-top:1px solid var(--line)}
+.readings li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.readings b{font-family:var(--latin);font-style:italic;font-weight:500;font-size:26px;letter-spacing:.02em;color:var(--accent);line-height:1.2}
+.readings span{font-size:14.5px;color:var(--soft)}
+.fig{margin:0}
+.fig svg{display:block;width:100%;height:auto;max-width:480px;margin:0 auto;overflow:visible}
+.fig figcaption{margin-top:16px;text-align:center;font-size:13px;color:var(--mute);letter-spacing:.08em}
+.fig .ln{fill:none;stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s cubic-bezier(.6,.05,.2,1) .3s}
+.fig .g1{stroke:rgba(239,232,222,.55)}.fig .g2{stroke:rgba(238,122,85,.8);transition-delay:1.1s}.fig .g3{stroke:rgba(239,232,222,.45);transition-delay:1.9s}
+.fig .rim{fill:none;stroke:var(--line-strong);stroke-width:1}
+.fig .dot{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.3);transition:opacity .8s 3s,transform .8s cubic-bezier(.3,1.6,.5,1) 3s}
+.fig .lbl{fill:currentColor;font-family:var(--serif);font-size:16px;letter-spacing:.16em;opacity:0;transition:opacity 1s}
+.fig .lbl.l1{transition-delay:1s}.fig .lbl.l2{transition-delay:1.8s}.fig .lbl.l3{transition-delay:2.6s}
+.fig .lbl-c{fill:#fff;font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:.3em;opacity:0;transition:opacity 1s 3.2s;paint-order:stroke;stroke:rgba(15,30,32,.85);stroke-width:6px}
+.fig.is-in .ln{stroke-dashoffset:0}
+.fig.is-in .dot{opacity:1;transform:none}
+.fig.is-in .lbl,.fig.is-in .lbl-c{opacity:1}
+@media (max-width:900px){.concept-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* band */
+.band{position:relative;height:clamp(260px,42vw,520px);overflow:hidden;margin:0;background:var(--fallback)}
+.band img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;filter:saturate(.7) brightness(.6);will-change:transform}
+.band figcaption{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 24px;font-family:var(--serif);font-size:clamp(19px,2.2vw,27px);letter-spacing:.18em;line-height:1.9;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+
+/* business */
+.biz-intro{max-width:36em;margin:-24px 0 clamp(56px,8vw,96px);color:var(--mute)}
+.biz{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center;position:relative;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
+.biz::before{content:"";position:absolute;top:-1px;left:0;height:2px;width:0;background:var(--accent);transition:width 1.6s cubic-bezier(.6,.05,.2,1) .2s}
+.biz.is-in::before{width:120px}
+.biz+.biz{margin-top:clamp(72px,10vw,128px)}
+.biz:nth-of-type(even) .biz__media{order:2}
+.biz__media{aspect-ratio:5/4;border-radius:2px 90px 2px 2px}
+.biz:nth-of-type(even) .biz__media{border-radius:90px 2px 2px 2px}
+.biz__media img{transform:scale(1.06);transition:transform 2.4s cubic-bezier(.2,.6,.2,1)}
+.biz.is-in .biz__media img{transform:scale(1)}
+.biz:hover .biz__media img{transform:scale(1.03)}
+.biz__kind{margin:0 0 6px;font-family:var(--latin);font-style:italic;font-size:22px;letter-spacing:.02em;color:var(--accent)}
+.biz h3{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.4vw,30px);line-height:1.6;letter-spacing:.1em;margin:0 0 18px}
+.biz h3 small{display:block;font-size:.58em;font-weight:500;letter-spacing:.16em;color:var(--mute);margin-top:4px}
+.biz p{color:var(--soft);max-width:30em}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-size:12.5px;letter-spacing:.08em;padding:4px 13px;border:1px solid var(--line-strong);border-radius:999px}
+@media (max-width:900px){.biz{grid-template-columns:minmax(0,1fr)}.biz:nth-of-type(even) .biz__media{order:0}}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}
+.steps::after{content:"";position:absolute;left:0;top:11px;height:1px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 2.4s cubic-bezier(.6,.1,.2,1)}
+.steps.is-in::after{transform:scaleX(1)}
+.step{position:relative;padding-top:46px}
+.step__dot{position:absolute;left:0;top:0;width:23px;height:23px;border-radius:50%;border:1px solid var(--mute);background:var(--sec-bg,var(--base));display:grid;place-items:center}
+.step__dot::after{content:"";width:11px;height:11px;border-radius:50%;border:2px solid var(--accent);transform:scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s)}
+.steps.is-in .step__dot::after{transform:scale(1)}
+.step__no{font-family:var(--latin);font-style:italic;font-size:24px;line-height:1;color:var(--accent)}
+.step h3{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.14em;margin:8px 0 10px}
+.step p{font-size:14.5px;margin:0;color:var(--soft)}
+.loop{display:flex;align-items:center;gap:14px;margin:52px 0 0;color:var(--mute);font-size:14px}
+.loop svg{flex:none}
+@media (max-width:900px){
+ .steps{grid-template-columns:minmax(0,1fr);gap:0;padding-left:42px}
+ .steps::before,.steps::after{left:11px;right:auto;top:10px;bottom:10px;width:1px;height:auto}
+ .steps::after{transform:scaleY(0);transform-origin:top}
+ .steps.is-in::after{transform:scaleY(1)}
+ .step{padding:0 0 36px}
+ .step__dot{left:-42px}
+}
+
+/* stance (paper, fabric) */
+.fabric{background-color:var(--paper);background-image:repeating-linear-gradient(0deg,rgba(var(--ink-rgb),.035) 0 1px,transparent 1px 5px),repeating-linear-gradient(2.5deg,rgba(var(--ink-rgb),.035) 0 1px,transparent 1px 5px)}
+.values{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.values li{padding:8px clamp(18px,3vw,40px);border-left:1px solid var(--line)}
+.values li:first-child{border-left:0;padding-left:0}
+.values b{display:block;font-family:var(--latin);font-style:italic;font-weight:500;font-size:22px;color:var(--accent);margin-bottom:6px}
+.values h3{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:.12em;margin:0 0 12px;line-height:1.6}
+.values p{margin:0;font-size:14.5px;color:var(--soft)}
+@media (max-width:860px){.values{grid-template-columns:minmax(0,1fr)}.values li{border-left:0;border-top:1px solid var(--line);padding:24px 0}.values li:first-child{border-top:0;padding-top:0}}
+
+/* message */
+.msg-sec{overflow:hidden}
+.msg-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 70% 40%,rgba(238,122,85,.1),transparent 70%);pointer-events:none}
+.msg{position:relative;display:flex;flex-direction:row-reverse;gap:clamp(40px,6vw,96px);justify-content:center;align-items:flex-start}
+.msg__title{writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;font-size:clamp(28px,3vw,40px);letter-spacing:.2em;line-height:1.7;margin:0;flex:none}
+.msg__body{writing-mode:vertical-rl;font-family:var(--serif);font-size:16.5px;line-height:2.3;letter-spacing:.14em;height:30em;max-width:100%;overflow-x:auto;overflow-y:hidden}
+.msg__body p{margin:0 0 0 1.5em}
+.msg__body .first{font-size:1.25em}
+.msg__sign{margin-top:auto!important;text-align:end;font-family:var(--sans)}
+.msg__sign small{display:block;font-size:13px;color:var(--mute);letter-spacing:.2em}
+.msg__sign strong{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:.3em}
+@media (max-width:900px){
+ .msg{flex-direction:column;gap:32px}
+ .msg__title,.msg__body{writing-mode:horizontal-tb;height:auto}
+ .msg__body{line-height:2.1;letter-spacing:.06em;overflow:visible}
+ .msg__body p{margin:0 0 1.4em}
+ .msg__sign{text-align:right}
+}
+
+/* company */
+.company-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(32px,6vw,96px);align-items:start}
+.profile{width:100%;border-collapse:collapse;font-size:15px}
+.profile th,.profile td{text-align:left;vertical-align:top;padding:22px 0;border-bottom:1px solid var(--line);font-weight:400}
+.profile tr:first-child th,.profile tr:first-child td{border-top:1px solid var(--line-strong)}
+.profile th{width:9em;color:var(--mute);font-size:14px;letter-spacing:.14em;padding-right:24px}
+.profile ul{margin:0;padding:0;list-style:none}
+.profile li{position:relative;padding-left:1.3em}
+.profile li+li{margin-top:.3em}
+.profile li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;border:1px solid var(--accent);box-shadow:3px 0 0 -1px rgba(238,122,85,.5)}
+.co-photo{aspect-ratio:3/4;max-width:340px;margin-top:8px}
+@media (max-width:900px){.company-grid{grid-template-columns:minmax(0,1fr)}.co-photo{aspect-ratio:16/10;max-width:none}}
+@media (max-width:640px){
+ .profile th,.profile td{display:block;width:auto;padding:0}
+ .profile th{padding-top:20px;border-bottom:0}
+ .profile td{padding:4px 0 20px}
+ .profile tr:first-child td{border-top:0}
+}
+
+/* footer */
+.footer{background:var(--deep);border-top:1px solid var(--line);padding:clamp(56px,8vw,80px) 0 calc(40px + env(safe-area-inset-bottom,0px))}
+.footer-in{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px}
+.footer-tag{margin:18px 0 0;font-family:var(--serif);font-size:clamp(15px,1.6vw,19px);letter-spacing:.18em}
+.footer-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px}
+.footer-nav a{text-decoration:none;font-size:13px;color:var(--mute);letter-spacing:.1em;transition:color .3s}
+.footer-nav a:hover{color:var(--text)}
+.copy{width:100%;margin:36px 0 0;font-family:var(--latin);font-size:14px;color:var(--mute);letter-spacing:.06em}
+
+/* rail : 二本の縞（本物のモアレ） */
+.rail{position:fixed;right:clamp(10px,1.6vw,24px);top:50%;transform:translateY(-50%);height:min(54vh,480px);width:16px;z-index:90;pointer-events:none}
+.rail__a,.rail__b{position:absolute;left:3px;width:10px;top:0;bottom:0;opacity:.75}
+.rail__a{background:repeating-linear-gradient(180deg,rgba(239,232,222,.55) 0 1px,transparent 1px 4px)}
+.rail__clip{position:absolute;inset:0;overflow:hidden}
+.rail__b{top:-40px;bottom:-40px;background:repeating-linear-gradient(180deg,rgba(238,122,85,.8) 0 1px,transparent 1px 4.4px);will-change:transform}
+.rail__mark{position:absolute;left:8px;top:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:1px solid var(--accent);background:rgba(15,30,32,.6);box-shadow:0 0 0 4px rgba(238,122,85,.12)}
+.rail__mark::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--accent)}
+.rail__read{position:absolute;right:22px;top:0;transform:translateY(-50%);font-family:var(--latin);font-style:italic;font-size:14px;color:var(--mute);writing-mode:vertical-rl;letter-spacing:.08em;white-space:nowrap}
+.rail.on-light .rail__a{background:repeating-linear-gradient(180deg,rgba(22,37,42,.5) 0 1px,transparent 1px 4px)}
+.rail.on-light .rail__mark{background:var(--paper)}
+@media (max-width:900px){.rail{right:5px;height:38vh;width:12px}.rail__a,.rail__b{width:6px}.rail__read{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .reveal,.js .hero h1 span,.js .hero__lead-wrap{opacity:1;transform:none}
+ .fig .ln{stroke-dashoffset:0}.fig .dot,.fig .lbl,.fig .lbl-c{opacity:1;transform:none}
+ .steps::after{transform:none}.step__dot::after{transform:scale(1)}
+ .biz__media img{transform:none}.biz::before{width:120px}
+ .band img{transform:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="header" id="header">
+  <div class="header-in">
+    <!-- 【確認事項】英字ロゴ「MOAR」と重なる輪の記号は仮ロゴです -->
+    <a class="logo" href="#top" aria-label="株式会社モアール トップへ"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><g fill="none" stroke="#EE7A55" stroke-width="1.1"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="11.4" opacity=".5"/></g><g fill="none" stroke="#EFE8DE" stroke-width="1.1"><circle cx="22" cy="12" r="4"/><circle cx="22" cy="12" r="8"/><circle cx="22" cy="12" r="11.4" opacity=".5"/></g></svg><span class="logo__t"><small>株式会社</small><b>モアール</b><em lang="en">Moar</em></span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-controls="gnav" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー">
+      <ul>
+      <li><a href="#concept">社名のこと</a></li>
+      <li><a href="#business">事業内容</a></li>
+      <li><a href="#process">集客の流れ</a></li>
+      <li><a href="#stance">大切にしていること</a></li>
+      <li><a href="#message">代表メッセージ</a></li>
+      <li><a href="#company">会社概要</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="rail__clip"><div class="rail__a"></div><div class="rail__b" id="railB"></div></div>
+  <span class="rail__mark" id="railMark"></span>
+  <span class="rail__read" id="railRead">0%</span>
+</div>
+
+<main id="main">
+<!-- ===== Hero（E：写真を網に描き直すCanvas） ===== -->
+<section class="hero" id="top" data-rail aria-labelledby="heroTitle">
+  <!-- 画像：Unsplash（仮）1540575467063-178a50c2df87 をCanvas内で線画の網に変換して表示。差し替え推奨 -->
+  <canvas id="heroCanvas" aria-hidden="true" data-src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&amp;fit=crop&amp;w=1600&amp;q=60"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__lead-wrap">
+    <p class="hero__en" lang="en">Layer by layer, people gather.</p>
+    <p class="hero__lead"><strong>株式会社モアール</strong>は、広告企画からイベント運営、営業支援まで、<span class="nw">企業の集客をトータルでサポートする会社です。</span></p>
+    <ul class="pills" aria-label="三つのサービス">
+      <li><a href="#biz1">広告企画</a></li>
+      <li><a href="#biz2">イベント運営</a></li>
+      <li><a href="#biz3">営業支援</a></li>
+    </ul>
+  </div>
+  <!-- 【確認事項】キャッチコピーは制作側の文案です -->
+  <h1 id="heroTitle"><span>重ねるほど、</span><span>人が集まる。</span></h1>
+  <a class="scroll-cue" href="#concept">Scroll</a>
+</section>
+
+<!-- ===== Concept ===== -->
+<section class="sec" id="concept" data-rail aria-labelledby="conceptTitle">
+  <div class="wrap concept-grid">
+    <div class="concept-text reveal">
+      <div class="sh"><p class="sh__en" lang="en" aria-hidden="true">Moiré</p><h2 id="conceptTitle">社名のこと</h2></div>
+      <p class="lede">ひとつでも届く。<br>重ねると、模様が生まれる。</p>
+      <!-- 【確認事項】社名の由来は未確認。以下は響きからの本案の解釈として書いています -->
+      <p>「モアール」という響きから、私たちは二つの言葉を思い浮かべています。</p>
+      <ul class="readings">
+        <li><b lang="en">more</b><span>もっと。ひとりでも多くの方に、知って、来て、話してもらうこと。</span></li>
+        <li><b lang="fr">moiré</b><span>薄い布や網を重ねたとき、どちらにもなかった模様が浮かび上がる現象。</span></li>
+      </ul>
+      <p>広告企画、イベント運営、営業支援。ひとつずつでも成果は生まれます。けれど三つを重ねたとき、はじめて「人が集まる流れ」という大きな模様が見えてくる。私たちは、その重ね方を考える会社です。</p>
+    </div>
+    <figure class="fig reveal" data-draw>
+      <svg viewBox="0 0 420 420" role="img" aria-labelledby="figT figD">
+        <title id="figT">三つの網が重なる図</title>
+        <desc id="figD">円の中に、広告・イベント・営業を表す三つの向きの線が順に引かれ、重なったところに網目の模様が生まれ、中心に「集客」と記された図。</desc>
+        <defs><clipPath id="disc"><circle cx="210" cy="210" r="150"/></clipPath></defs>
+        <circle class="rim" cx="210" cy="210" r="150"/>
+        <g clip-path="url(#disc)">
+          <path class="ln g1" id="gA" pathLength="1" d=""/>
+          <path class="ln g2" id="gB" pathLength="1" d=""/>
+          <path class="ln g3" id="gC" pathLength="1" d=""/>
+        </g>
+        <circle class="dot" cx="210" cy="210" r="5"/>
+        <text class="lbl-c" x="210" y="246" text-anchor="middle">集客</text>
+        <text class="lbl l1" x="210" y="40" text-anchor="middle">広告企画</text>
+        <text class="lbl l2" x="372" y="352" text-anchor="middle">イベント運営</text>
+        <text class="lbl l3" x="48" y="352" text-anchor="middle">営業支援</text>
+      </svg>
+      <figcaption>三つの線を重ねたとき、はじめて見える模様がある。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<figure class="band">
+  <!-- 画像：Unsplash（仮）1505236858219-8359eb29e329 差し替え推奨 -->
+  <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&amp;fit=crop&amp;w=2000&amp;q=72" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+  <!-- 【確認事項】写真帯の一文は制作側の文案です -->
+  <figcaption>ひとつの施策で、終わらせない。<br>重ねて、広げていく。</figcaption>
+</figure>
+
+<!-- ===== Business ===== -->
+<section class="sec" id="business" data-rail aria-labelledby="bizTitle">
+  <div class="wrap">
+    <div class="sh"><p class="sh__en" lang="en" aria-hidden="true">Business</p><h2 id="bizTitle">事業内容</h2></div>
+    <p class="biz-intro">広告サービスと集客支援。広告企画からイベント運営、営業支援まで、企業の集客をトータルでサポートします。</p>
+    <!-- 【確認事項】各サービスの説明は制作側の文案。実際の提供範囲に合わせて修正してください -->
+    <article class="biz reveal" aria-labelledby="biz1">
+      <figure class="biz__media ph">
+        <!-- 画像：Unsplash（仮）1454165804606-c3d57bc86b40 -->
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" alt="資料に書き込みながら企画を検討する手元" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+      </figure>
+      <div>
+        <p class="biz__kind" lang="en">to be known</p>
+        <h3 id="biz1">広告企画<small>知ってもらう、一枚目の網</small></h3>
+        <p>誰に、何を、どう伝えるか。目的と対象を整理するところから、届く広告を企画します。</p>
+        <ul class="tags"><li>目的と対象の整理</li><li>広告の企画</li></ul>
+      </div>
+    </article>
+    <article class="biz reveal" aria-labelledby="biz2">
+      <figure class="biz__media ph">
+        <!-- 画像：Unsplash（仮）1511578314322-379afb476865 -->
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" alt="準備の整ったイベント会場" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+      </figure>
+      <div>
+        <p class="biz__kind" lang="en">to gather</p>
+        <h3 id="biz2">イベント運営<small>集まってもらう、二枚目の網</small></h3>
+        <!-- 【確認事項】イベント運営の対象（展示会・販促イベント・セミナー等）と規模 -->
+        <p>人が直接ふれ、体験できる場をつくります。企画した広告と重ねることで、知った方が足を運ぶ理由が生まれます。</p>
+        <ul class="tags"><li>イベントの企画</li><li>当日の運営</li></ul>
+      </div>
+    </article>
+    <article class="biz reveal" aria-labelledby="biz3">
+      <figure class="biz__media ph">
+        <!-- 画像：Unsplash（仮）1517048676732-d65bc937f952 -->
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&amp;fit=crop&amp;w=1400&amp;q=72" alt="テーブルを囲んで意見を交わすメンバー" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('is-fallback');this.remove()">
+      </figure>
+      <div>
+        <p class="biz__kind" lang="en">to talk</p>
+        <h3 id="biz3">営業支援<small>話を進める、三枚目の網</small></h3>
+        <!-- 【確認事項】営業支援の範囲（営業代行・資料作成・同行等） -->
+        <p>集まった関心を、具体的な商談へ。広告やイベントで生まれたつながりを、営業の場まで途切れさせずに支えます。</p>
+        <ul class="tags"><li>営業の支援</li><li>商談へのつなぎ</li></ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== Process ===== -->
+<section class="sec alt" id="process" data-rail aria-labelledby="procTitle">
+  <div class="wrap">
+    <div class="sh"><p class="sh__en" lang="en" aria-hidden="true">Process</p><h2 id="procTitle">集客の流れ</h2></div>
+    <p class="lede reveal">知る、集まる、話す。<br>そして、次へ重ねる。</p>
+    <!-- 【確認事項】進め方の4段階は制作側の想定です。順序のある工程のため番号を使用 -->
+    <ol class="steps reveal" data-draw>
+      <li class="step"><span class="step__dot" aria-hidden="true"></span><span class="step__no">01</span><h3>知ってもらう</h3><p>目的と対象を整理し、届く広告を企画します。</p></li>
+      <li class="step" style="--d:.6s"><span class="step__dot" aria-hidden="true"></span><span class="step__no">02</span><h3>集まってもらう</h3><p>イベントの場をつくり、直接ふれる機会を設けます。</p></li>
+      <li class="step" style="--d:1.2s"><span class="step__dot" aria-hidden="true"></span><span class="step__no">03</span><h3>話を進める</h3><p>営業支援で、関心を具体的な商談へつなげます。</p></li>
+      <li class="step" style="--d:1.8s"><span class="step__dot" aria-hidden="true"></span><span class="step__no">04</span><h3>次に活かす</h3><p>振り返りを次の企画へ。流れを育てていきます。</p></li>
+    </ol>
+    <p class="loop reveal"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M22 9a9 9 0 1 0 1.6 7" fill="none" stroke="#EE7A55" stroke-width="1.4" stroke-linecap="round"/><path d="M22.6 3.6 22 9l-5.2-1" fill="none" stroke="#EE7A55" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>振り返りは、また「知ってもらう」へ。重ねるたびに、模様は大きくなります。</p>
+  </div>
+</section>
+
+<!-- ===== Stance ===== -->
+<section class="sec paper fabric" id="stance" data-rail data-light aria-labelledby="stanceTitle">
+  <div class="wrap">
+    <div class="sh"><p class="sh__en" lang="en" aria-hidden="true">Our stance</p><h2 id="stanceTitle">大切にしていること</h2></div>
+    <!-- 【確認事項】3項目は制作側の文案です -->
+    <ul class="values reveal">
+      <li><b lang="en">One team</b><h3>窓口はひとつに</h3><p>広告もイベントも営業も、ひとつのチームで受け止め、ご担当者さまの手間を減らします。</p></li>
+      <li><b lang="en">On site</b><h3>現場に立つ</h3><p>企画で終わらせず、会場や商談の場まで足を運び、実際の反応を確かめます。</p></li>
+      <li><b lang="en">Next step</b><h3>次の一手まで</h3><p>ひとつの施策で終わらせず、次につながる集客の流れを一緒に考えます。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Message（草案） ===== -->
+<section class="sec msg-sec" id="message" data-rail aria-labelledby="msgTitle">
+  <!-- 【確認事項】代表メッセージは草案です。ご本人の確認・修正を経て公開してください -->
+  <div class="wrap">
+    <div class="msg reveal">
+      <h2 class="msg__title" id="msgTitle">一枚では、<br>見えない模様。</h2>
+      <div class="msg__body">
+        <p class="first">人が集まる場には、いつも、いくつもの工夫が重なっています。</p>
+        <p>広告で知ってもらい、イベントで足を運んでもらい、営業で話を進める。どれか一つだけを頑張っても、流れはどこかで途切れてしまいます。</p>
+        <p>私たちは、その三つをひとつのチームで受け止めます。重ね方を考え、現場に立ち、反応を確かめながら次へつなげていきます。</p>
+        <p>集客に悩むご担当者さまの隣で、一枚では見えなかった模様を、一緒に描いていきたいと考えています。</p>
+        <!-- 【確認事項】署名欄の氏名は会社概要に記載のため省略。役職名は仮 -->
+        <p class="msg__sign"><small>代表取締役</small><strong>高橋美和</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Company ===== -->
+<section class="sec deep" id="company" data-rail aria-labelledby="coTitle">
+  <div class="wrap company-grid">
+    <div class="reveal">
+      <div class="sh"><p class="sh__en" lang="en" aria-hidden="true">Company</p><h2 id="coTitle">会社概要</h2></div>
+    </div>
+    <div class="reveal">
+<table class="profile"><tbody>
+  <tr><th scope="row">商号</th><td>株式会社モアール</td></tr>
+  <!-- 【確認事項】役職名の表記（株式会社のため「代表取締役」と仮置き） -->
+  <tr><th scope="row">代表者</th><td>代表取締役　高橋美和</td></tr>
+  <!-- 【確認事項】所在地は提出書類の住所と完全一致しているかご確認ください（建物名を含む）。郵便番号はCSVの記載（1100003）から補記 -->
+  <tr><th scope="row">所在地</th><td>〒110-0003<br>東京都台東区根岸1-1-15</td></tr>
+  <tr><th scope="row">事業内容</th><td><ul>
+    <li>広告サービス、集客支援</li>
+    <li>広告企画からイベント運営、営業支援まで、企業の集客をトータルサポート</li>
+  </ul></td></tr>
+  <!-- 【確認事項】設立年月日・資本金・従業員数はCSVに無いため未掲載。確定後にコメントを外して記入
+  <tr><th scope="row">設立</th><td>　年　月</td></tr>
+  <tr><th scope="row">資本金</th><td>　万円</td></tr>
+  <tr><th scope="row">従業員数</th><td>　名</td></tr>
+  -->
+</tbody></table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div>
+      <a class="logo" href="#top" aria-label="株式会社モアール トップへ"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><g fill="none" stroke="#EE7A55" stroke-width="1.1"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="11.4" opacity=".5"/></g><g fill="none" stroke="#EFE8DE" stroke-width="1.1"><circle cx="22" cy="12" r="4"/><circle cx="22" cy="12" r="8"/><circle cx="22" cy="12" r="11.4" opacity=".5"/></g></svg><span class="logo__t"><small>株式会社</small><b>モアール</b><em lang="en">Moar</em></span></a>
+      <p class="footer-tag">重ねるほど、人が集まる。</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <ul>
+      <li><a href="#concept">社名のこと</a></li>
+      <li><a href="#business">事業内容</a></li>
+      <li><a href="#process">集客の流れ</a></li>
+      <li><a href="#stance">大切にしていること</a></li>
+      <li><a href="#message">代表メッセージ</a></li>
+      <li><a href="#company">会社概要</a></li>
+      </ul>
+    </nav>
+    <p class="copy">&copy; <span id="year">2026</span> 株式会社モアール</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+var header = document.getElementById('header');
+function clamp(v,a,b){ return v < a ? a : (v > b ? b : v); }
+function ease(t){ return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2; }
+
+/* menu */
+var btn = document.getElementById('menuBtn'), nav = document.getElementById('gnav');
+function setMenu(open){
+  btn.setAttribute('aria-expanded', String(open));
+  btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  nav.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+  if (open){ var f = nav.querySelector('a'); if (f) f.focus(); }
+}
+btn.addEventListener('click', function(){ setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+nav.addEventListener('click', function(e){ if (e.target.closest('a') && nav.classList.contains('is-open')) setMenu(false); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && nav.classList.contains('is-open')){ setMenu(false); btn.focus(); } });
+matchMedia('(min-width:901px)').addEventListener('change', function(m){ if (m.matches) setMenu(false); });
+
+/* concept figure : three gratings */
+(function(){
+  function grating(angle, gap){
+    var d = '', c = Math.cos(angle), s = Math.sin(angle);
+    for (var k = -160; k <= 160; k += gap){
+      var x1 = 210 + (-c*170) - s*k, y1 = 210 + (-s*170) + c*k, x2 = 210 + c*170 - s*k, y2 = 210 + s*170 + c*k;
+      d += 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + 'L' + x2.toFixed(1) + ' ' + y2.toFixed(1);
+    }
+    return d;
+  }
+  var a = document.getElementById('gA'), b = document.getElementById('gB'), c = document.getElementById('gC');
+  if (a){ a.setAttribute('d', grating(0, 9)); b.setAttribute('d', grating(Math.PI/3 + .05, 9.5)); c.setAttribute('d', grating(-Math.PI/3 - .03, 10)); }
+})();
+
+/* hero canvas : 写真を横線の網に描き直し、同心円の網を重ねる（モアレ） */
+(function(){
+  var cv = document.getElementById('heroCanvas');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var hero = cv.parentElement;
+  var W = 0, H = 0, running = false, visible = true, raf = 0, t0 = performance.now();
+  var CORAL = '238,122,85', KINARI = '239,232,222';
+  var img = new Image(), imgOk = false, plate = document.createElement('canvas'), pctx = plate.getContext('2d');
+  var mobile = false, cx = 0, cy = 0, pointerAt = -1e9, px = 0, py = 0;
+  img.crossOrigin = 'anonymous';
+  img.onload = function(){ imgOk = true; makePlate(); if (!running) still(); };
+  img.onerror = function(){ imgOk = false; };
+  img.src = cv.getAttribute('data-src').replace(/&amp;/g, '&');
+  addEventListener('pointermove', function(e){ var r = hero.getBoundingClientRect(); px = e.clientX - r.left; py = e.clientY - r.top; if (py > 0 && py < r.height) pointerAt = performance.now(); }, {passive:true});
+  function makePlate(){
+    plate.width = Math.max(1, Math.round(W)); plate.height = Math.max(1, Math.round(H));
+    pctx.clearRect(0, 0, W, H);
+    var S = mobile ? 5 : 6;
+    if (!imgOk){
+      for (var yy = 0; yy < H; yy += S){ pctx.fillStyle = 'rgba(' + KINARI + ',.16)'; pctx.fillRect(0, yy, W, 1); }
+      return;
+    }
+    var sw = Math.ceil(W/2), sh = Math.ceil(H/S), sc = document.createElement('canvas'), sx = sc.getContext('2d');
+    sc.width = sw; sc.height = sh;
+    /* cover crop into sw×sh while keeping the photo's aspect in screen space */
+    var scale = Math.max(W/img.width, H/img.height), vw = W/scale, vh = H/scale, ox = (img.width - vw)/2, oy = (img.height - vh)/2;
+    sx.drawImage(img, ox, oy, vw, vh, 0, 0, sw, sh);
+    var data;
+    try { data = sx.getImageData(0, 0, sw, sh).data; } catch(e){ imgOk = false; makePlate(); return; }
+    for (var j = 0; j < sh; j++){
+      var yc = j*S + S/2;
+      for (var i = 0; i < sw; i++){
+        var o = (j*sw + i)*4, l = (data[o]*.3 + data[o+1]*.59 + data[o+2]*.11)/255;
+        var th = Math.pow(l, .9)*S*.86;
+        if (th < .35) continue;
+        pctx.fillStyle = 'rgba(' + KINARI + ',' + (.18 + .5*l).toFixed(3) + ')';
+        pctx.fillRect(i*2, yc - th/2, 2, th);
+      }
+    }
+  }
+  function resize(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight; mobile = W < 760;
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    makePlate();
+    var a = auto(0); cx = a[0]; cy = a[1];
+  }
+  function auto(t){ return [W*((mobile ? .5 : .56) + .14*Math.sin(t*.13)), H*((mobile ? .36 : .46) + (mobile ? .08 : .12)*Math.sin(t*.19 + 1.2))]; }
+  function draw(t){
+    ctx.clearRect(0, 0, W, H);
+    /* plate rises line by line from the bottom */
+    var k = ease(clamp((t - .1)/2.4, 0, 1)), top = H*(1 - k);
+    ctx.save(); ctx.globalAlpha = mobile ? .75 : .95;
+    ctx.drawImage(plate, 0, top, W, H - top, 0, top, W, H - top);
+    ctx.restore();
+    /* concentric grating */
+    var ra = clamp((t - 1.2)/1.6, 0, 1); if (ra <= 0) return;
+    var tg = auto(t);
+    if (!reduce && performance.now() - pointerAt < 3500){ tg = [px, py]; }
+    if (reduce){ cx = tg[0]; cy = tg[1]; } else { cx += (tg[0] - cx)*.04; cy += (tg[1] - cy)*.04; }
+    var gap = mobile ? 6.2 : 7.4, ph = (t*5) % gap, maxR = Math.hypot(W, H);
+    ctx.beginPath();
+    for (var r = ph + gap; r < maxR; r += gap){ ctx.moveTo(cx + r, cy); ctx.arc(cx, cy, r, 0, 6.2832); }
+    ctx.strokeStyle = 'rgba(' + CORAL + ',' + (.3*ra*(mobile ? .8 : 1)) + ')'; ctx.lineWidth = 1.6; ctx.stroke();
+    /* the gathering point */
+    var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 70);
+    g.addColorStop(0, 'rgba(' + CORAL + ',' + (.35*ra) + ')'); g.addColorStop(1, 'rgba(' + CORAL + ',0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, 70, 0, 6.2832); ctx.fill();
+    ctx.fillStyle = 'rgba(255,240,230,' + ra + ')'; ctx.beginPath(); ctx.arc(cx, cy, 3, 0, 6.2832); ctx.fill();
+  }
+  function loop(now){ if (!running) return; draw((now - t0)/1000); raf = requestAnimationFrame(loop); }
+  function start(){ if (running || reduce || !visible || document.hidden) return; running = true; raf = requestAnimationFrame(loop); }
+  function stop(){ running = false; cancelAnimationFrame(raf); }
+  function still(){ draw(9); }
+  resize();
+  if (reduce) still(); else start();
+  var rt, lastW = W;
+  addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){
+    if (cv.clientWidth === lastW && Math.abs(cv.clientHeight - H) < 120 && running) return;
+    lastW = cv.clientWidth; resize(); if (!running) still(); }, 150); });
+  if ('IntersectionObserver' in window){ new IntersectionObserver(function(en){ visible = en[0].isIntersecting; visible ? start() : stop(); }).observe(hero); }
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+})();
+
+/* reveal (one-shot) */
+var targets = document.querySelectorAll('.reveal, [data-draw]');
+if ('IntersectionObserver' in window && !reduce){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (!en.isIntersecting) return; en.target.classList.add('is-in'); io.unobserve(en.target); });
+  }, {threshold:.18, rootMargin:'0px 0px -6% 0px'});
+  targets.forEach(function(t){ io.observe(t); });
+} else { targets.forEach(function(t){ t.classList.add('is-in'); }); }
+
+/* rail : 二本の縞のずれ（モアレ） */
+var rail = document.getElementById('rail'), railB = document.getElementById('railB'), mark = document.getElementById('railMark'), read = document.getElementById('railRead');
+var lights = Array.prototype.slice.call(document.querySelectorAll('[data-light]'));
+var band = document.querySelector('.band img');
+function onScroll(){
+  header.classList.toggle('is-scrolled', scrollY > 40);
+  var max = document.documentElement.scrollHeight - innerHeight;
+  var p = max > 0 ? clamp(scrollY/max, 0, 1) : 0;
+  railB.style.transform = 'translateY(' + (p*40 - 20).toFixed(2) + 'px) rotate(' + (reduce ? 0 : (p - .5)*3).toFixed(2) + 'deg)';
+  mark.style.top = (p*100) + '%'; read.style.top = (p*100) + '%';
+  read.textContent = Math.round(p*100) + '%';
+  var mid = innerHeight/2;
+  rail.classList.toggle('on-light', lights.some(function(s){ var r = s.getBoundingClientRect(); return r.top < mid && r.bottom > mid; }));
+  if (band && !reduce){
+    var r = band.parentElement.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < innerHeight){ var k = (r.top + r.height/2 - innerHeight/2)/innerHeight; band.style.transform = 'translateY(' + (k*-40).toFixed(1) + 'px)'; }
+  }
+}
+var ticking = false;
+addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(function(){ onScroll(); ticking = false; }); } }, {passive:true});
+addEventListener('resize', onScroll);
+onScroll();
+})();
+</script>
+</body>
+</html>
